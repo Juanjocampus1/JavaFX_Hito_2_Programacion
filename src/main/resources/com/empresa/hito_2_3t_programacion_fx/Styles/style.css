@@ -1,0 +1,84 @@
+/* Estilos para Títulos */
+.title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+    -fx-padding: 10px;
+}
+
+/* Estilos para Botones */
+.button-large {
+    -fx-font-size: 16px;
+    -fx-padding: 10px 20px; /* Más relleno horizontal */
+    -fx-background-radius: 5px; /* Bordes redondeados */
+}
+
+.button-primary {
+    -fx-background-color: #007bff;
+    -fx-text-fill: #fff;
+}
+
+.button-warning {
+    -fx-background-color: #ffc107;
+    -fx-text-fill: #333;
+}
+
+.button-danger {
+    -fx-background-color: #dc3545;
+    -fx-text-fill: #fff;
+}
+
+.button-large:hover {
+    -fx-opacity: 0.85;
+    -fx-cursor: pointer; /* Cambiar el cursor al pasar el ratón */
+}
+
+/* Estilos para las Etiquetas */
+.label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #555;
+    -fx-padding: 5px;
+}
+
+/* Estilos para los Campos de Texto */
+.text-field {
+    -fx-background-color: #f5f5f5;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5px; /* Bordes redondeados */
+    -fx-padding: 10px; /* Aumentar el relleno */
+    -fx-font-size: 14px;
+    -fx-focus-color: #007bff; /* Color del borde al hacer clic */
+    -fx-unfocus-color: #ccc; /* Color del borde cuando no está en foco */
+}
+
+/* Estilos para la Tabla */
+.table-view {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1px; /* Borde ligero alrededor de la tabla */
+    -fx-border-radius: 5px; /* Bordes redondeados */
+    -fx-padding: 10px; /* Relleno interno */
+    -fx-alternate-row-fill: true; /* Colores alternados en las filas */
+    -fx-table-cell-border-color: transparent; /* Sin bordes entre celdas */
+    -fx-selection-bar: #007bff; /* Color para fila seleccionada */
+}
+
+.table-column {
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.table-view .table-column .table-cell {
+    -fx-padding: 10px; /* Relleno dentro de las celdas */
+    -fx-background-color: transparent; /* Color de fondo transparente */
+}
+
+.table-view .table-row-cell {
+    -fx-border-radius: 5px; /* Bordes redondeados para filas */
+    -fx-hover-background-color: #e6f7ff; /* Color de fondo al pasar el ratón */
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #007bff; /* Color de fondo para la fila seleccionada */
+    -fx-text-fill: #fff; /* Texto blanco para la fila seleccionada */
+}
