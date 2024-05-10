@@ -3,33 +3,79 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="720.0" prefWidth="1280.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.empresa.hito_2_3t_programacion_fx.Controllers.HelloController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-  </padding>
-   <GridPane>
-     <columnConstraints>
-       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-     </columnConstraints>
-     <rowConstraints>
-       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-       <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
-       <RowConstraints maxHeight="25.0" minHeight="0.0" prefHeight="18.0" vgrow="SOMETIMES" />
-     </rowConstraints>
-      <children>
-         <TableView prefHeight="326.0" prefWidth="1240.0">
-           <columns>
-             <TableColumn prefWidth="75.0" text="C1" />
-             <TableColumn prefWidth="75.0" text="C2" />
-           </columns>
-         </TableView>
-        <Button fx:id="delete" onAction="#onHelloButtonClick" prefHeight="48.0" prefWidth="148.0" text="eliminar" />
-         <Button fx:id="create" mnemonicParsing="false" prefHeight="48.0" prefWidth="148.0" text="Añadir" />
-         <Button fx:id="update" mnemonicParsing="false" prefHeight="48.0" prefWidth="148.0" text="Actualizar" />
-      
-        <Label fx:id="welcomeText" />
-      </children>
-   </GridPane>
+<VBox alignment="CENTER" prefHeight="720.0" prefWidth="1280.0" spacing="20.0" stylesheets="@Styles/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.empresa.hito_2_3t_programacion_fx.Controllers.MainController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label styleClass="title" text="Gestión de Datos" />
+
+    <!-- Formulario para ingresar datos -->
+    <GridPane alignment="CENTER" hgap="10" prefHeight="200" prefWidth="800" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" minWidth="120" />
+            <ColumnConstraints halignment="LEFT" minWidth="200" />
+        </columnConstraints>
+
+        <rowConstraints>
+            <RowConstraints minHeight="40" />
+            <RowConstraints minHeight="40" />
+            <RowConstraints minHeight="40" />
+            <RowConstraints minHeight="40" />
+            <RowConstraints minHeight="40" />
+        </rowConstraints>
+
+        <!-- Campo ID, deshabilitado por defecto -->
+        <Label styleClass="label" text="ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="idField" disable="true" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <!-- Campo Nombre -->
+        <Label styleClass="label" text="Nombre:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="nameField" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <!-- Campo Descripción -->
+        <Label styleClass="label" text="Descripción:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="descriptionField" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <!-- Campo Categoría -->
+        <Label styleClass="label" text="Categoría:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <TextField fx:id="categoryField" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+        <!-- Campo Precio -->
+        <Label styleClass="label" text="Precio:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <TextField fx:id="priceField" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+    </GridPane>
+
+    <!-- Tabla para mostrar datos -->
+    <TableView fx:id="dataTable" prefHeight="400" prefWidth="800" styleClass="table-view">
+        <columns>
+            <TableColumn fx:id="idColumn" styleClass="table-column" text="ID" />
+            <TableColumn fx:id="nameColumn" styleClass="table-column" text="Nombre" />
+            <TableColumn fx:id="descriptionColumn" styleClass="table-column" text="Descripción" />
+            <TableColumn fx:id="categoryColumn" styleClass="table-column" text="Categoría" />
+            <TableColumn fx:id="priceColumn" styleClass="table-column" text="Precio" />
+        </columns>
+    </TableView>
+
+    <!-- Sección de Botones -->
+    <HBox alignment="CENTER" spacing="20">
+        <Button fx:id="createButton" onAction="#onCreateButtonClick" prefHeight="25.0" prefWidth="100.0" styleClass="button-primary" text="CREAR">
+         <font>
+            <Font size="16.0" />
+         </font>
+        </Button>
+        <Button fx:id="updateButton" onAction="#onUpdateButtonClick" prefHeight="35.0" prefWidth="123.0" styleClass="button-warning" text="ACTUALIZAR">
+         <font>
+            <Font size="16.0" />
+         </font>
+        </Button>
+        <Button fx:id="deleteButton" onAction="#onDeleteButtonClick" prefHeight="35.0" prefWidth="123.0" styleClass="button-danger" text="ELIMINAR">
+         <font>
+            <Font size="16.0" />
+         </font>
+        </Button>
+    </HBox>
+
 </VBox>
