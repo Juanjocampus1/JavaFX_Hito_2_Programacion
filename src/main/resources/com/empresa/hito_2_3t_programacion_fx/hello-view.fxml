@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="720.0" prefWidth="1280.0" spacing="20.0" stylesheets="@Styles/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.empresa.hito_2_3t_programacion_fx.Controllers.MainController">
+<VBox alignment="CENTER" prefHeight="720.0" prefWidth="1280.0" spacing="20.0" stylesheets="@Styles/style.css" styleClass="gradient-background" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.empresa.hito_2_3t_programacion_fx.Controllers.MainController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -59,22 +59,23 @@
         </columns>
     </TableView>
 
+
     <!-- Sección de Botones -->
     <HBox alignment="CENTER" spacing="20">
         <Button fx:id="createButton" onAction="#onCreateButtonClick" prefHeight="25.0" prefWidth="100.0" styleClass="button-primary" text="CREAR">
-         <font>
-            <Font size="16.0" />
-         </font>
+            <font>
+                <Font size="16.0" />
+            </font>
         </Button>
         <Button fx:id="updateButton" onAction="#onUpdateButtonClick" prefHeight="35.0" prefWidth="123.0" styleClass="button-warning" text="ACTUALIZAR">
-         <font>
-            <Font size="16.0" />
-         </font>
+            <font>
+                <Font size="16.0" />
+            </font>
         </Button>
         <Button fx:id="deleteButton" onAction="#onDeleteButtonClick" prefHeight="35.0" prefWidth="123.0" styleClass="button-danger" text="ELIMINAR">
-         <font>
-            <Font size="16.0" />
-         </font>
+            <font>
+                <Font size="16.0" />
+            </font>
         </Button>
     </HBox>
 

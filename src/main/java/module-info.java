@@ -17,4 +17,5 @@ module com.empresa.hito_2_3t_programacion_fx {
     exports com.empresa.hito_2_3t_programacion_fx;
     exports com.empresa.hito_2_3t_programacion_fx.Controllers;
     opens com.empresa.hito_2_3t_programacion_fx.Controllers to javafx.fxml;
+    opens com.empresa.hito_2_3t_programacion_fx.DTO to javafx.base;
 }

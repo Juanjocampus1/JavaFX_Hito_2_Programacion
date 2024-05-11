@@ -1,5 +1,7 @@
 package com.empresa.hito_2_3t_programacion_fx.HTTP.Request;
 
+import com.empresa.hito_2_3t_programacion_fx.DTO.DataDTO;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -9,14 +11,17 @@ import java.util.logging.Logger;
 public class DeleteRequest {
     private static final Logger LOGGER = Logger.getLogger(DeleteRequest.class.getName());
 
-    public void sendDeleteRequest(Long selectedId) {
+    public void sendDeleteRequest(DataDTO dataDTO) {
         try {
+            // Extraer el ID del objeto DataDTO
+            Long id = dataDTO.getId();
+
             // Crear el cliente HTTP
             HttpClient client = HttpClient.newHttpClient();
 
             // Crear la solicitud DELETE con el ID del recurso
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:8081/api/products/delete/" + selectedId)) // Endpoint con el ID
+                    .uri(URI.create("http://localhost:8081/api/products/delete/" + id)) // Endpoint con el ID
                     .DELETE() // Solicitud DELETE
                     .build();
 

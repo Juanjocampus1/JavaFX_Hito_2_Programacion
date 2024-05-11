@@ -1,7 +1,9 @@
 package com.empresa.hito_2_3t_programacion_fx.HTTP.Request;
 
 import com.empresa.hito_2_3t_programacion_fx.DTO.DataDTO;
+import com.empresa.hito_2_3t_programacion_fx.DTO.DataDTOTypeAdapter;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -16,7 +18,9 @@ public class PutRequest {
     public void sendPutRequest(DataDTO dataDTO, long id) {
         try {
             // Convertir el objeto a JSON
-            Gson gson = new Gson();
+            Gson gson = new GsonBuilder()
+                    .registerTypeAdapter(DataDTO.class, new DataDTOTypeAdapter())
+                    .create();
             String json = gson.toJson(dataDTO);
 
             HttpClient client = HttpClient.newHttpClient();

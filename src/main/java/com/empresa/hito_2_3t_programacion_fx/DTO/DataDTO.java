@@ -16,4 +16,5 @@ public class DataDTO {
     private String description;
     private String category;
     private BigDecimal price;
+
 }

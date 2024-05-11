@@ -1,31 +1,23 @@
 package com.empresa.hito_2_3t_programacion_fx.HTTP.Response;
 
+import com.empresa.hito_2_3t_programacion_fx.DTO.DataDTO;
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
 public class GetResponse {
     private static final Logger LOGGER = Logger.getLogger(GetResponse.class.getName());
 
-    // Interfaz para el listener
-    public interface OnDataReceivedListener {
-        void onDataReceived(JSONArray data);
-    }
-
-    // Variable para almacenar el listener
-    private OnDataReceivedListener listener;
-
-    // Método para establecer el listener
-    public void setOnDataReceivedListener(OnDataReceivedListener listener) {
-        this.listener = listener;
-    }
-
     // Método para realizar una solicitud GET
-    public void sendGetRequest() {
+    public List<DataDTO> sendGetRequest() {
+        List<DataDTO> dataList = new ArrayList<>();
         try {
             // Crea el cliente HTTP
             HttpClient client = HttpClient.newHttpClient();
@@ -46,14 +38,23 @@ public class GetResponse {
             // Parsea la respuesta JSON
             JSONArray jsonArray = new JSONArray(response.body());
 
-            // Verifica si el listener está establecido y notifica los datos recibidos
-            if (listener != null) {
-                listener.onDataReceived(jsonArray);
+            // Convierte cada objeto JSON en un objeto DataDTO y lo añade a la lista
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                DataDTO dataDTO = new DataDTO(
+                        jsonObject.getLong("id"),
+                        jsonObject.getString("name"),
+                        jsonObject.getString("description"),
+                        jsonObject.getString("category"),
+                        jsonObject.getBigDecimal("price")
+                );
+                dataList.add(dataDTO);
             }
 
         } catch (Exception e) {
             LOGGER.severe("Error al enviar solicitud GET: " + e.getMessage());
             e.printStackTrace();
         }
+        return dataList;
     }
 }

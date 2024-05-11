@@ -1,84 +1,109 @@
+/* Estilo para el degradado */
+.gradient-background {
+    -fx-background-color: #333;
+}
+
 /* Estilos para Títulos */
 .title {
-    -fx-font-size: 28px;
+    -fx-font-size: 32px;
     -fx-font-weight: bold;
-    -fx-text-fill: #333;
-    -fx-padding: 10px;
+    -fx-text-fill: #fff; /* Texto blanco */
+    -fx-padding: 20px;
 }
 
 /* Estilos para Botones */
 .button-large {
-    -fx-font-size: 16px;
-    -fx-padding: 10px 20px; /* Más relleno horizontal */
-    -fx-background-radius: 5px; /* Bordes redondeados */
+    -fx-font-size: 18px;
+    -fx-padding: 12px 24px; /* Más relleno horizontal */
+    -fx-background-radius: 8px; /* Bordes redondeados */
 }
 
 .button-primary {
-    -fx-background-color: #007bff;
+    -fx-background-color: #4CAF50; /* Verde */
     -fx-text-fill: #fff;
+}
+
+.button-primary:hover {
+    -fx-background-color: #45a049; /* Verde más oscuro al pasar el mouse */
 }
 
 .button-warning {
-    -fx-background-color: #ffc107;
+    -fx-background-color: #FFC107; /* Amarillo */
     -fx-text-fill: #333;
 }
 
+.button-warning:hover {
+    -fx-background-color: #e0a800; /* Amarillo más oscuro al pasar el mouse */
+}
+
 .button-danger {
-    -fx-background-color: #dc3545;
+    -fx-background-color: #F44336; /* Rojo */
     -fx-text-fill: #fff;
 }
 
-.button-large:hover {
-    -fx-opacity: 0.85;
-    -fx-cursor: pointer; /* Cambiar el cursor al pasar el ratón */
+.button-danger:hover {
+    -fx-background-color: #e53935; /* Rojo más oscuro al pasar el mouse */
 }
 
 /* Estilos para las Etiquetas */
 .label {
     -fx-font-weight: bold;
-    -fx-text-fill: #555;
-    -fx-padding: 5px;
+    -fx-text-fill: #fff; /* Texto blanco */
+    -fx-padding: 10px 0;
 }
 
 /* Estilos para los Campos de Texto */
 .text-field {
-    -fx-background-color: #f5f5f5;
-    -fx-border-color: #ccc;
-    -fx-border-radius: 5px; /* Bordes redondeados */
-    -fx-padding: 10px; /* Aumentar el relleno */
-    -fx-font-size: 14px;
-    -fx-focus-color: #007bff; /* Color del borde al hacer clic */
-    -fx-unfocus-color: #ccc; /* Color del borde cuando no está en foco */
+    -fx-background-color: #242424; /* Gris oscuro */
+    -fx-border-color: #555; /* Borde gris más oscuro */
+    -fx-border-radius: 8px; /* Bordes redondeados */
+    -fx-padding: 12px;
+    -fx-font-size: 16px;
+    -fx-text-fill: #fff; /* Texto blanco */
+    -fx-focus-color: #4CAF50; /* Verde al hacer clic */
+    -fx-unfocus-color: #555; /* Gris oscuro cuando no está en foco */
 }
 
 /* Estilos para la Tabla */
 .table-view {
-    -fx-background-color: #f9f9f9;
-    -fx-border-color: #ccc;
-    -fx-border-width: 1px; /* Borde ligero alrededor de la tabla */
-    -fx-border-radius: 5px; /* Bordes redondeados */
-    -fx-padding: 10px; /* Relleno interno */
-    -fx-alternate-row-fill: true; /* Colores alternados en las filas */
+    -fx-background-color: #242424; /* Azul oscuro */
+    -fx-border-color: #555; /* Borde gris más oscuro */
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px; /* Bordes redondeados */
+    -fx-padding: 20px;
+    -fx-font-size: 16px;
     -fx-table-cell-border-color: transparent; /* Sin bordes entre celdas */
-    -fx-selection-bar: #007bff; /* Color para fila seleccionada */
+    -fx-text-fill: #000;
 }
 
-.table-column {
+.table-view .table-column {
     -fx-font-weight: bold;
-    -fx-text-fill: #333;
+    -fx-text-fill: #000; /* Texto blanco */
+    -fx-alignment: CENTER; /* Alineación centrada */
 }
 
-.table-view .table-column .table-cell {
-    -fx-padding: 10px; /* Relleno dentro de las celdas */
-    -fx-background-color: transparent; /* Color de fondo transparente */
-}
-
-.table-view .table-row-cell {
-    -fx-border-radius: 5px; /* Bordes redondeados para filas */
-    -fx-hover-background-color: #e6f7ff; /* Color de fondo al pasar el ratón */
+.table-view .table-cell {
+    -fx-padding: 12px;
+    -fx-background-color: transparent;
 }
 
 .table-view .table-row-cell:selected {
-    -fx-background-color: #007bff; /* Color de fondo para la fila seleccionada */
-    -fx-text-fill: #fff; /* Texto blanco para la fila seleccionada */
+    -fx-background-color: #444; /* Gris más oscuro para fila seleccionada */
+    -fx-text-fill: #fff; /* Texto blanco */
+}
+
+/* Ajustes adicionales */
+.table-view .column-header-background {
+    -fx-background-color: #444; /* Gris más oscuro para fondo de cabecera */
+    -fx-border-color: #555; /* Borde gris más oscuro */
+    -fx-border-width: 0 0 1 0; /* Solo borde inferior */
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+/* Efecto Hover en la Tabla */
+.table-view .table-row-cell:hover {
+    -fx-background-color: #34495e; /* Azul más oscuro al pasar el mouse */
 }
