@@ -17,15 +17,6 @@ import java.util.List;
 public class MainController {
 
     @FXML
-    private Button createButton;
-
-    @FXML
-    private Button updateButton;
-
-    @FXML
-    private Button deleteButton;
-
-    @FXML
     private TextField idField;
 
     @FXML
@@ -117,7 +108,29 @@ public class MainController {
         String name = nameField.getText();
         String description = descriptionField.getText();
         String category = categoryField.getText();
-        BigDecimal price = new BigDecimal(priceField.getText());
+        String priceText = priceField.getText();
+
+        //definir una constante con el valor error
+        final String ERROR = "ERROR";
+
+        // Verificar si algún campo está vacío
+        if (name.isEmpty() || description.isEmpty() || category.isEmpty() || priceText.isEmpty()) {
+            showAlert(ERROR, "Todos los campos deben estar llenos.");
+            return;
+        }
+
+        // Verificar si el precio es un número
+        if (!priceText.matches("\\d+(\\.\\d+)?")) {
+            showAlert(ERROR, "El precio debe ser un número.");
+            return;
+        }
+
+        // Verificar si el precio es negativo
+        BigDecimal price = new BigDecimal(priceText);
+        if (price.compareTo(BigDecimal.ZERO) < 0) {
+            showAlert(ERROR, "El precio no puede ser negativo.");
+            return;
+        }
 
         // Crear un objeto DataDTO con los valores extraídos
         DataDTO dataDTO = new DataDTO(null, name, description, category, price);
@@ -144,13 +157,35 @@ public class MainController {
     @FXML
     protected void onUpdateButtonClick() {
         // Extraer los valores de los campos de texto
-        Long id = Long.parseLong(idField.getText());
+        String idText = idField.getText();
         String name = nameField.getText();
         String description = descriptionField.getText();
         String category = categoryField.getText();
-        BigDecimal price = new BigDecimal(priceField.getText());
+        String priceText = priceField.getText();
+
+        final String ERROR = "ERROR";
+
+        // Verificar si algún campo está vacío
+        if (idText.isEmpty() || name.isEmpty() || description.isEmpty() || category.isEmpty() || priceText.isEmpty()) {
+            showAlert(ERROR, "Todos los campos deben estar llenos.");
+            return;
+        }
+
+        // Verificar si el precio es un número
+        if (!priceText.matches("\\d+(\\.\\d+)?")) {
+            showAlert(ERROR, "El precio debe ser un número.");
+            return;
+        }
+
+        // Verificar si el precio es negativo
+        BigDecimal price = new BigDecimal(priceText);
+        if (price.compareTo(BigDecimal.ZERO) < 0) {
+            showAlert(ERROR, "El precio no puede ser negativo.");
+            return;
+        }
 
         // Crear un objeto DataDTO con los valores extraídos
+        long id = Long.parseLong(idText);
         DataDTO dataDTO = new DataDTO(id, name, description, category, price);
 
         // Crear un objeto PutRequest y enviar la solicitud PUT a la API
@@ -171,6 +206,14 @@ public class MainController {
         // Mapear los datos recibidos en la tabla
         ObservableList<DataDTO> observableList = FXCollections.observableArrayList(dataList);
         dataTable.setItems(observableList);
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     @FXML
@@ -200,5 +243,15 @@ public class MainController {
         // Mapear los datos recibidos en la tabla
         ObservableList<DataDTO> observableList = FXCollections.observableArrayList(dataList);
         dataTable.setItems(observableList);
+    }
+
+    @FXML
+    protected void onClearButtonClick() {
+        // Limpiar todos los campos de texto
+        idField.clear();
+        nameField.clear();
+        descriptionField.clear();
+        categoryField.clear();
+        priceField.clear();
     }
 }

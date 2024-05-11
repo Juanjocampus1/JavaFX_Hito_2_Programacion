@@ -10,7 +10,7 @@ import java.io.IOException;
 public class FXApplication extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(FXApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(FXApplication.class.getResource("views/Main-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         // Obtener las dimensiones de la pantalla
@@ -22,7 +22,7 @@ public class FXApplication extends javafx.application.Application {
         stage.setWidth(screenBounds.getWidth());
         stage.setHeight(screenBounds.getHeight());
 
-        stage.setTitle("Hitos 2, 3T Programación FX");
+        stage.setTitle("Hito 2, 3T Programación FX");
         stage.setScene(scene);
         stage.show();
     }
