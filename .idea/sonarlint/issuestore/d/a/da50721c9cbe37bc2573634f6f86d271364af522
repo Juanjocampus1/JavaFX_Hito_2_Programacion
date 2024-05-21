@@ -1,0 +1,8 @@
+
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ˆ±ÝÁ8ÖØÃ¿ù1J$3c9e32a7-6675-49da-a2e7-d28fbc3dbd3f
+€
+java:S1128"8Remove this unused import 'javafx.scene.input.KeyEvent'.(¦¶ Æøÿÿÿÿ8‰ÙÃ¿ù1J$d6f82f98-9903-4b57-b434-feb693953509
+z
+java:S1128"2Remove this unused import 'java.util.Collections'.(¢³ïÓþÿÿÿÿ8‰¼Í¿ù1J$fca41dc9-6e70-4bdf-bd25-92f5e1c5bedb
+t
+java:S1128"1Remove this unused import 'java.util.Comparator'.(î¹ó¹8ŠÙÃ¿ù1J$4d9cc872-dc55-4462-93e9-92c444afa2ab
