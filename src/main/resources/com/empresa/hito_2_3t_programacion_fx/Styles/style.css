@@ -106,7 +106,7 @@
 
 .combo-box .list-cell {
     -fx-background-color: #424242; /* Gris oscuro */
-    -fx-text-fill: #fff; /* Texto blanco */
+    -fx-text-fill: #dbdbdb; /* Texto blanco */
 }
 
 
